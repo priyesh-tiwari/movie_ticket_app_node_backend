@@ -47,4 +47,4 @@ const getTheaters = async (req , res) => {
     }
 };
 
-module.exports = { createTheater, getTheaters };
+module.exports = { createTheater, getTheaters, getMyTheaters};
