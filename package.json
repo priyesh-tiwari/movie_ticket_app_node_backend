@@ -20,5 +20,8 @@
     "mongoose": "^9.2.4",
     "nodemailer": "^8.0.2",
     "stripe": "^20.4.1"
+  },
+  "devDependencies": {
+    "@react-native-community/cli": "^20.1.2"
   }
 }

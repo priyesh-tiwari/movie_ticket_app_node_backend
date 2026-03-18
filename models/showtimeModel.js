@@ -47,6 +47,11 @@ const showtimeSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
+    // Add this field to showtimeSchema
+    date: {
+        type: String,
+        required: true
+    },
     selectedSeats: {
         type: [String],
         default: []

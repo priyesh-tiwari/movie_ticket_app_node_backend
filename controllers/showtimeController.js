@@ -5,7 +5,7 @@ const LOCK_DURATION_MS = 10 * 60 * 1000; // 10 minutes
 
 const addShowtime = async (req, res) => {
     try {
-        const { movieId, movieTitle, moviePoster, theaterId, screenId, time, startTime } = req.body;
+        const { movieId, movieTitle, moviePoster, theaterId, screenId, time, startTime, date } = req.body;
 
         const showtime = new Showtime({
             movieId,
@@ -14,7 +14,8 @@ const addShowtime = async (req, res) => {
             theaterId,
             screenId,
             time,
-            startTime
+            startTime,
+            date,       // 👈 add this
         });
 
         await showtime.save();

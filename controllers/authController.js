@@ -253,4 +253,16 @@ const makeAdmin = async (req, res) => {
     }
 };
 
-module.exports = { sendOTP, verifyOTP, login, refreshToken, logout, forgotPassword, resetPassword, makeAdmin };
+const getProfile = async (req, res) => {
+    try {
+        const user = await User.findById(req.user.userId).select('-password -refreshToken');
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.status(200).json({ user });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+module.exports = { sendOTP, verifyOTP, login, refreshToken, logout, forgotPassword, resetPassword, makeAdmin , getProfile};

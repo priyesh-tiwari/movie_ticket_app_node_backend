@@ -9,6 +9,7 @@ const {
     forgotPassword,
     resetPassword,
     makeAdmin,
+    getProfile,
 } = require('../controllers/authController');
 const { protect, isAdmin } = require('../middlewares/authMiddleware');
 
@@ -20,5 +21,6 @@ router.post('/logout', logout);
 router.post('/forgot-password', forgotPassword);
 router.post('/reset-password', resetPassword);
 router.post('/make-admin', protect, isAdmin, makeAdmin);
+router.post('/profile' , protect , getProfile);
 
 module.exports = router;
