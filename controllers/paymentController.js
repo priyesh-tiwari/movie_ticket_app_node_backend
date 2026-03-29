@@ -5,7 +5,8 @@ const Receipt = require('../models/receiptModel');
 
 const createPaymentIntent = async (req, res) => {
     try {
-        const { amount, currency, userId, movieId, theaterId, screenId, showtimeId, selectedSeats } = req.body;
+        const { amount, currency, movieId, theaterId, screenId, showtimeId, selectedSeats } = req.body;
+        const userId = req.user.userId;
 
         const paymentIntent = await stripe.paymentIntents.create({
             amount,
